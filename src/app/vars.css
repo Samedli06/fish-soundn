@@ -1,0 +1,25 @@
+/* Figma Styles of your File */
+:root {
+    /* Colors */
+    /* Fonts */
+    /* Effects */
+  }
+  /* Figma Color Variables of your File */
+  :root,
+  [data-basiccolor-mode="mode-1"] {
+    /* mode-1 */
+    --white-100: #fdfdff;
+    --white-200: #ffffff;
+    --black-100: #000000;
+    --red-100: #ff0d0d;
+    --blue-100: #0d9eec;
+    --blue-200: #dfebf6;
+    --blue-300: #768a96;
+    --blue-400: #29353c;
+    --purple-100: #b0a7e8;
+    --purple-200: #e1dff2;
+    --purple-300: #bb6bd9;
+    --blue-500: #44576d;
+    --purple-400: #f5f4ff;
+  }
+  
