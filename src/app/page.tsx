@@ -29,7 +29,7 @@ export default function Home() {
           scrolled ? "bg-white/80 backdrop-blur-sm shadow-sm" : "bg-transparent"
         }`}
       >
-        <div className="px-[100px] py-4">
+        <div className="py-4 px-0 lg:px-[100px]">
           <Headers />
         </div>
       </motion.div>
