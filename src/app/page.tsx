@@ -192,7 +192,7 @@ export default function Home() {
             <div className="text-black text-center font-[SpaceGrotesk-Regular,sans-serif] text-5xl leading-[88%] font-normal w-[1240px]" style={{ letterSpacing: '-0.04em' }}>
               Sizin biznesiniz, sizin pleylistiniz. İndi yaradın və ya tapın.
             </div>
-            <button className="bg-black rounded-[69px] px-[23px] py-[15px] flex items-center justify-center w-[167px] text-white text-xl font-bold font-[SpaceGrotesk-Bold,sans-serif]">
+            <button className="bg-black rounded-[69px] px-[32px] py-[15px] flex items-center justify-center text-white text-xl font-bold font-[SpaceGrotesk-Bold,sans-serif] whitespace-nowrap">
               Pulsuz yoxla
             </button>
           </div>
