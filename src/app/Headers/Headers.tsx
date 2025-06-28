@@ -22,11 +22,11 @@ export const Headers = ({
         "flex flex-row items-center justify-between w-full relative px-4" +
         (className || "")
       }
-      style={{ minHeight: '48px' }}
+      style={{ minHeight: '64px' }}
     >
       {/* Logo on the far left */}
       <div className="flex items-center gap-2 bg-transparent">
-        <Image src="/vector.svg" alt="Fish Sound Logo" width={70} height={55} className="w-8 h-6 sm:w-12 sm:h-10 lg:w-[70px] lg:h-[55px]" />
+        <Image src="/vector.svg" alt="Fish Sound Logo" width={80} height={65} className="w-10 h-8 sm:w-14 sm:h-12 lg:w-[80px] lg:h-[65px]" />
       </div>
       {/* Hamburger Menu Button on the far right */}
       <div className="lg:hidden flex items-center">
@@ -44,7 +44,7 @@ export const Headers = ({
       </div>
       
       {/* Desktop Navigation */}
-      <div className="hidden lg:flex shrink-0 h-12 items-center justify-end">
+      <div className="hidden lg:flex shrink-0 h-14 items-center justify-end">
         <nav className="flex flex-row items-center gap-[62px]">
           <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Biznes tipləri
