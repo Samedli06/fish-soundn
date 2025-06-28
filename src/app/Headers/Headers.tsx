@@ -19,10 +19,10 @@ export const Headers = ({
   return (
     <div
       className={
-        "flex flex-row items-center justify-between w-full relative px-4" +
+        "flex flex-row items-center justify-between w-full relative px-4 pb-2" +
         (className || "")
       }
-      style={{ minHeight: '64px' }}
+      style={{ minHeight: '72px' }}
     >
       {/* Logo on the far left */}
       <div className="flex items-center gap-2 bg-transparent">
