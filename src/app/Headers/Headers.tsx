@@ -1,15 +1,17 @@
 import Image from "next/image";
-import { JSX, useState } from "react";
+import { JSX } from "react";
 
 export interface IHeadersProps {
   className?: string;
+  isMenuOpen: boolean;
+  setIsMenuOpen: (open: boolean) => void;
 }
 
 export const Headers = ({
   className,
+  isMenuOpen,
+  setIsMenuOpen,
 }: IHeadersProps): JSX.Element => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -17,13 +19,14 @@ export const Headers = ({
   return (
     <div
       className={
-        "flex flex-row items-center justify-between w-full relative px-4 pb-2" +
+        "flex flex-row items-center justify-between w-full relative px-4" +
         (className || "")
       }
+      style={{ minHeight: '48px' }}
     >
       {/* Logo on the far left */}
       <div className="flex items-center gap-2 bg-transparent">
-        <Image src="/vector.svg" alt="Fish Sound Logo" width={90} height={70} className="w-10 h-8 sm:w-14 sm:h-12 lg:w-[90px] lg:h-[70px]" />
+        <Image src="/vector.svg" alt="Fish Sound Logo" width={70} height={55} className="w-8 h-6 sm:w-12 sm:h-10 lg:w-[70px] lg:h-[55px]" />
       </div>
       {/* Hamburger Menu Button on the far right */}
       <div className="lg:hidden flex items-center">
@@ -41,44 +44,32 @@ export const Headers = ({
       </div>
       
       {/* Desktop Navigation */}
-      <div className="hidden lg:block shrink-0 w-[400px] xl:w-[600px] 2xl:w-[916px] h-14 relative">
-        <div className="flex flex-row gap-[5px] items-center justify-start absolute left-0 top-[15px]">
-          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-sm xl:text-xl font-bold relative group pb-1 flex items-center justify-center">
+      <div className="hidden lg:flex shrink-0 h-12 items-center justify-end">
+        <nav className="flex flex-row items-center gap-[62px]">
+          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Biznes tipləri
             <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full group-focus:w-full"></span>
           </a>
-          <div
-            className="shrink-0 w-6 h-6 relative overflow-hidden"
-            style={{ aspectRatio: "1" }}
-          ></div>
-        </div>
-        <div className="flex flex-row gap-[5px] items-center justify-start absolute left-[100px] xl:left-[150px] 2xl:left-[217px] top-[15px]">
-          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-sm xl:text-xl font-bold relative group pb-1 flex items-center justify-center">
+          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Qiymətlər
             <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full group-focus:w-full"></span>
           </a>
-        </div>
-        <div className="flex flex-row gap-[5px] items-center justify-start absolute left-[180px] xl:left-[250px] 2xl:left-[373px] top-[15px]">
-          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-sm xl:text-xl font-bold relative group pb-1 flex items-center justify-center">
+          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Faq
             <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full group-focus:w-full"></span>
           </a>
-        </div>
-        <div className="flex flex-row gap-[5px] items-center justify-start absolute left-[230px] xl:left-[320px] 2xl:left-[470px] top-[15px]">
-          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-sm xl:text-xl font-bold relative group pb-1 flex items-center justify-center">
+          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Əlaqə
             <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full group-focus:w-full"></span>
           </a>
-        </div>
-        <div className="pt-[11px] pr-[15px] pb-[11px] pl-[15px] flex flex-row gap-2.5 items-center justify-center absolute left-[280px] xl:left-[380px] 2xl:left-[587px] top-1 overflow-hidden">
-          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-sm xl:text-xl font-bold relative group pb-1 flex items-center justify-center">
+          <a href="#" className="text-black-100 text-center font-['SpaceGrotesk-Bold',_sans-serif] text-base font-bold relative group pb-1 flex items-center justify-center">
             Daxil ol
             <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full group-focus:w-full"></span>
           </a>
-        </div>
-        <button className="bg-red-500 text-white rounded-full px-4 xl:px-6 2xl:px-8 py-2 xl:py-3 text-sm xl:text-lg font-semibold shadow-none hover:bg-red-600 transition absolute left-[350px] xl:left-[480px] 2xl:left-[749px] top-0" style={{ minWidth: 120 }}>
-          Pulsuz yoxla
-        </button>
+          <button className="bg-red-500 text-white rounded-full px-6 py-1.5 text-base font-semibold shadow-none hover:bg-red-600 transition flex items-center justify-center" style={{ minWidth: 100 }}>
+            <span>Pulsuz yoxla</span>
+          </button>
+        </nav>
       </div>
 
       {/* Mobile Menu */}

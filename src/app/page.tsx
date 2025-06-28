@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -26,11 +27,15 @@ export default function Home() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          scrolled ? "bg-white/80 backdrop-blur-sm shadow-sm" : "bg-transparent"
+          isMenuOpen
+            ? "bg-white"
+            : scrolled
+            ? "bg-white/80 backdrop-blur-sm shadow-sm"
+            : "bg-transparent"
         }`}
       >
-        <div className="py-4 px-0 lg:px-[100px]">
-          <Headers />
+        <div className="px-0 lg:px-[100px]">
+          <Headers isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         </div>
       </motion.div>
       
@@ -195,6 +200,294 @@ export default function Home() {
             <button className="bg-black rounded-[69px] px-[32px] py-[15px] flex items-center justify-center text-white text-xl font-bold font-[SpaceGrotesk-Bold,sans-serif] whitespace-nowrap">
               Pulsuz yoxla
             </button>
+          </div>
+        </div>
+      </section>
+      
+      {/* Pricing Section */}
+      <section className="flex flex-col gap-16 items-center justify-start relative w-full py-12">
+        {/* Title */}
+        <h2 className="text-black text-center font-bold font-[SpaceGrotesk-Bold,sans-serif] text-4xl sm:text-5xl md:text-[63px] mb-4 w-full flex items-center justify-center">
+          Qiymətlər
+        </h2>
+        {/* Yearly Plans */}
+        <div className="w-full max-w-6xl flex flex-col items-center gap-8">
+          <div className="text-black text-center font-bold font-[SpaceGrotesk-Bold,sans-serif] text-2xl sm:text-3xl md:text-[40px] w-full">İllik</div>
+          <div className="w-full rounded-[27.16px] border-0 border-[#DAF4BD] bg-white/50 backdrop-blur-[18.28px] flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-stretch relative p-8 md:p-12">
+            {/* Başlanğıc */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$X</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">il</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Başlanğıc
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Standart paket
+                </div>
+              </div>
+
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 musiqi janrı seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">2 cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">1 stansiya seçimi</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
+            {/* Professional */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$X</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">il</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Professional
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Ən çox satılan paket
+                </div>
+              </div>
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 musiqi janrı seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 stansiya seçimi</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
+            {/* Premium */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$XX</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">il</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Premium
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Bütün funksiyaları istifadə etmə imkanı
+                </div>
+              </div>
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz janr seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz stansiya seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Süni intelektdən istifadə</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
+          </div>
+        </div>
+        {/* Monthly Plans */}
+        <div className="w-full max-w-6xl flex flex-col items-center gap-8 mt-16">
+          <div className="text-black text-center font-bold font-[SpaceGrotesk-Bold,sans-serif] text-2xl sm:text-3xl md:text-[40px] w-full">Aylıq</div>
+          <div className="w-full rounded-[27.16px] border-0 border-[#DAF4BD] bg-white/50 backdrop-blur-[18.28px] flex flex-col md:flex-row gap-6 md:gap-8 justify-center items-stretch relative p-8 md:p-12">
+            {/* Başlanğıc */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$X</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">/Ay</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Başlanğıc
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Standart paket
+                </div>
+              </div>
+
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 musiqi janrı seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">2 cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">1 stansiya seçimi</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
+            {/* Professional */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$X</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">/Ay</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Professional
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Ən çox satılan paket
+                </div>
+              </div>
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 musiqi janrı seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">5 cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#ede6fa]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#b89cff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">3 stansiya seçimi</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
+            {/* Premium */}
+            <div className="group transform rounded-2xl shadow-md flex flex-col items-start justify-start h-[500px] md:h-[540px] pt-0 pr-6 pb-6 pl-6 md:pt-0 md:pr-12 md:pb-12 md:pl-12 w-full md:w-1/3 relative transition-all duration-300 cursor-pointer hover:scale-110 focus:scale-110 hover:-translate-y-2 focus:-translate-y-2 hover:bg-[#dfebf6] focus:bg-[#dfebf6] hover:shadow-xl focus:shadow-xl">
+              <div className="w-full flex items-baseline justify-start relative" style={{minHeight: '48.05px', marginBottom: '0px'}}>
+                <span className="font-[SpaceGrotesk-Bold,sans-serif] font-bold" style={{fontSize: '37.61px', lineHeight: '48.05px', letterSpacing: '0px'}}>$XX</span>
+                <span className="ml-2 font-[SpaceGrotesk-Medium,sans-serif] font-medium text-[17.76px] leading-none">/Ay</span>
+              </div>
+              <div className="h-4" />
+              <div className="flex flex-col w-full gap-[13px] min-h-[130px]">
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Bold,sans-serif',
+                    fontWeight: 'bold',
+                    fontSize: '29.25px',
+                    textAlign: 'left',
+                    width: '100%',
+                    lineHeight: 1
+                  }}
+                >
+                  Premium
+                </div>
+                <div
+                  style={{
+                    padding: 0,
+                    fontFamily: 'SpaceGrotesk-Medium,sans-serif',
+                    fontWeight: 500,
+                    fontSize: '15.67px',
+                    lineHeight: 1,
+                    letterSpacing: '0px',
+                    textAlign: 'left',
+                    width: '100%'
+                  }}
+                >
+                  Bütün funksiyaları istifadə etmə imkanı
+                </div>
+              </div>
+              <ul className="flex flex-col gap-2 w-full flex-1 min-h-[180px]">
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz janr seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz pleylist yaratma</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz cihaz seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Limitsiz stansiya seçimi</span></li>
+                <li className="flex items-center gap-2"><span className="w-6 h-6 flex items-center justify-center rounded-full bg-[#dbe3ea]"><svg width="16" height="16" fill="none" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="none"/><path d="M5.5 8.5l2 2 3-3" stroke="#768a96" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="text-black">Süni intelektdən istifadə</span></li>
+              </ul>
+              <button className="rounded-[25.071px] px-8 py-3 font-medium w-full bg-[#DFEBF6] text-black transition-colors duration-300 opacity-50 hover:opacity-100 group-hover:bg-black group-hover:text-white group-hover:opacity-100 group-focus:bg-black group-focus:text-white">Planı seç</button>
+            </div>
           </div>
         </div>
       </section>
