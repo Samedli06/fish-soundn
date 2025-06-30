@@ -26,7 +26,7 @@ export const Headers = ({
     >
       {/* Logo on the far left */}
       <div className="flex items-center gap-2 bg-transparent">
-        <Image src="/vector.svg" alt="Fish Sound Logo" width={80} height={65} className="w-10 h-8 sm:w-14 sm:h-12 lg:w-[80px] lg:h-[65px]" />
+        <Image src="/vector.svg" alt="Fish Sound Logo" width={110} height={100} className="w-16 h-12 sm:w-24 sm:h-20 lg:w-[110px] lg:h-[100px]" />
       </div>
       {/* Hamburger Menu Button on the far right */}
       <div className="lg:hidden flex items-center">
